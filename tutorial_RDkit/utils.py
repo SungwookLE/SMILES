@@ -3,6 +3,7 @@ from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem
 from rdkit.Chem.Crippen import MolLogP
 from rdkit.Chem.rdMolDescriptors import CalcTPSA
+from tqdm import tqdm
 
 def read_data(filename):
     f = open(filename + '.smiles', 'r')
@@ -32,7 +33,7 @@ def read_ZINC(num_mol):
     logP = []
     tpsa = []
 
-    for i in range(num_mol):
+    for i in tqdm(range(num_mol), desc="read ZINC"):
         smi = contents[i].strip()
         m = Chem.MolFromSmiles(smi)
         fp = AllChem.GetMorganFingerprintAsBitVect(m,2)
