@@ -94,6 +94,7 @@ def test(model, criterion, dataloader):
     batch_size = size/batchSize
 
     totalLoss = 0
+    model.eval()
     for batch, (X, y) in enumerate(dataloader):
         X, y = X.to(device), y.to(device)
 

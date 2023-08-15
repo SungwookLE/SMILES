@@ -1,0 +1,3 @@
+[submodule "PredPS/predps"]
+	path = PredPS/predps
+	url = https://wdjang@bitbucket.org/krict-ai/predps.git
